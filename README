@@ -1,0 +1,6 @@
+2015-04-21
+- This simulation will be dead simple; a point source of gamma rays directed
+  at a 12.5 mm pure LS target. The energy deposit in the target will be logged.
+
+- I've done this. It appears to be working but visualisation on the RACF is
+  problematic; so I'm git-ing and changing to working on local ubuntu desktop.
