@@ -261,6 +261,15 @@ G4VPhysicalVolume* DetectorConstruction::Construct(){
   G4LogicalVolume* liq_log =
       new G4LogicalVolume(liquid, Scint, "liq_log", 0,0,0);
 
+  //G4RunManager to see which sensitive detectors there are
+  G4SDManager* SDman = G4SDManager::GetSDMpointer();
+
+  //create SensitiveDetector object
+  SensitiveDetector* SD = new SensitiveDetector("SD_log");
+  //pass new sensitive detector to manager
+  SDman->AddNewDetector(SD);
+  liq_log->SetSensitiveDetector(SD);
+
   G4VPhysicalVolume* liq_phys =
     new G4PVPlacement(0, G4ThreeVector(0, 0, 0), liq_log, "liq_phys",
 		      logical_world, false, 0, false);
